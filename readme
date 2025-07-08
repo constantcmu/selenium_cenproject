@@ -1,0 +1,19 @@
+# Selenium CEN Project
+
+โปรเจกต์นี้ใช้ Python, Selenium และ Pandas สำหรับอัตโนมัติการเข้าสู่ระบบและจัดการข้อมูลในระบบ https://cenproject.rid.go.th/ พร้อมบันทึกผลลัพธ์ลง Excel
+
+## โครงสร้างไฟล์
+
+- `.env` : เก็บตัวแปรลับ เช่น CEN_USERNAME, CEN_PASSWORD
+- `selenium_cenproject.ipynb` : Jupyter Notebook สำหรับรันกระบวนการอัตโนมัติ
+- `edit_name_file.py` : ตัวอย่างสคริปต์เปลี่ยนชื่อไฟล์ตามเวลาแก้ไข
+- `test_hello_world.py` : ตัวอย่างเทสต์ Selenium
+- `__pycache__/`, `.pytest_cache/` : โฟลเดอร์ cache อัตโนมัติ
+
+## การติดตั้ง
+
+1. ติดตั้ง Python 3.11+ และ [Google Chrome](https://www.google.com/chrome/)
+2. ติดตั้งไลบรารีที่จำเป็น
+
+```sh
+pip install selenium webdriver_manager python-dotenv pandas openpyxl
