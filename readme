@@ -2,19 +2,31 @@
 
 โปรเจกต์นี้ใช้ Python, Selenium และ Pandas สำหรับอัตโนมัติการเข้าสู่ระบบและจัดการข้อมูลในระบบ [cenproject.rid.go.th](https://cenproject.rid.go.th/) พร้อมบันทึกผลลัพธ์ลง Excel
 
-## โครงสร้างไฟล์
+## โครงสร้างโปรเจกต์ (Refactored)
 
-- `.env` : เก็บตัวแปรลับ เช่น `CEN_USERNAME`, `CEN_PASSWORD`
-- `selenium_cenproject.ipynb` : Jupyter Notebook สำหรับรันกระบวนการอัตโนมัติ
-- `edit_name_file.py` : ตัวอย่างสคริปต์เปลี่ยนชื่อไฟล์ตามเวลาแก้ไข
-- `test_hello_world.py` : ตัวอย่างเทสต์ Selenium
-- `__pycache__/`, `.pytest_cache/` : โฟลเดอร์ cache อัตโนมัติ
+- `main.py` : **สคริปต์หลัก** สำหรับรันกระบวนการอัตโนมัติ (แนะนำให้ใช้ไฟล์นี้)
+- `config.py` : จัดการการตั้งค่าและดึงค่าจาก `.env`
+- `utils.py` : ฟังก์ชันส่วนกลาง (Driver Setup, Table Parsing, Pagination)
+- `.env` : เก็บตัวแปรลับ (ดูตัวอย่างที่ `.env.example`)
+- `selenium_cenproject.ipynb` : Jupyter Notebook สำหรับทดลองรัน
+- `table_main_2568.xlsx` : ไฟล์ Excel ข้อมูลหลักที่ใช้ในการตรวจสอบ
 
 ## การติดตั้ง
 
 1. ติดตั้ง Python 3.11 ขึ้นไป และ [Google Chrome](https://www.google.com/chrome/)
-2. ติดตั้งไลบรารีที่จำเป็น
+2. สร้างไฟล์ `.env` โดยก๊อปปี้จาก `.env.example` แล้วใส่ Username/Password ของคุณ
+3. ติดตั้งไลบรารีที่จำเป็น:
 
 ```sh
-pip install selenium webdriver_manager python-dotenv pandas openpyxl
+pip install selenium webdriver_manager python-dotenv pandas openpyxl beautifulsoup4
 ```
+
+## การใช้งาน
+
+รันสคริปต์หลักด้วยคำสั่ง:
+
+```sh
+python main.py
+```
+
+ผลการทำงานจะถูกบันทึกลงในไฟล์ `cen_automation.log` เพื่อการตรวจสอบย้อนหลัง
