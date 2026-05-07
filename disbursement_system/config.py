@@ -19,6 +19,7 @@ class Config:
     LOGIN_URL = f"{BASE_URL}/"
     # Target for Budget Tracking
     BUDGET_TRACK_URL = f"{BASE_URL}/track/budget"
+    TARGET_URL = os.getenv("TARGET_URL", "https://cenproject.rid.go.th/track/project?BudgetYear=2026&BudgetSourceID=1&IsMergeDraft=1")
     
     # Application Constants
     # Default to 2026 (Year 2569) if not specified

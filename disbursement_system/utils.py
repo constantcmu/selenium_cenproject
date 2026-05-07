@@ -67,6 +67,19 @@ def fast_login(driver, wait):
         logger.error(f"Login error: {e}")
         raise
 
+
+def fast_navigate_to_target_url(driver, wait):
+    #navigate to target bugget 2569
+    driver.get(Config.TARGET_URL)
+    loading_overlay = (By.XPATH, "//div[contains(@style, 'z-index: 9999')]")
+    try :
+        wait.until(EC.invisibility_of_element_located(loading_overlay))
+        logger.info("Navigate to Target URL successfully.")
+    except Exception as e:
+        logger.error(f"Navigate to Target URL error: {e}")
+        raise   
+ 
+
 def fill_disbursement_form(driver, wait, data):
     """
     Logic for filling the 'Add Disbursement' modal.
