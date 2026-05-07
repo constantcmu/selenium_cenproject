@@ -1,0 +1,47 @@
+2026-05-07 13:24:00,326 [INFO] ====== WebDriver manager ======
+2026-05-07 13:24:02,213 [INFO] Get LATEST chromedriver version for google-chrome
+2026-05-07 13:24:02,844 [INFO] Get LATEST chromedriver version for google-chrome
+2026-05-07 13:24:03,322 [INFO] There is no [win64] chromedriver "147.0.7727.117" for browser google-chrome "147.0.7727" in cache
+2026-05-07 13:24:03,323 [INFO] Get LATEST chromedriver version for google-chrome
+2026-05-07 13:24:04,390 [INFO] WebDriver version 147.0.7727.117 selected
+2026-05-07 13:24:04,399 [INFO] Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/147.0.7727.117/win32/chromedriver-win32.zip
+2026-05-07 13:24:04,401 [INFO] About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/147.0.7727.117/win32/chromedriver-win32.zip
+2026-05-07 13:24:04,967 [INFO] Driver downloading response is 200
+2026-05-07 13:24:05,548 [INFO] Get LATEST chromedriver version for google-chrome
+2026-05-07 13:24:06,139 [INFO] Driver has been saved in cache [C:\Users\LEGION\.wdm\drivers\chromedriver\win64\147.0.7727.117]
+2026-05-07 13:24:08,705 [INFO] Navigating to: https://cenproject.rid.go.th/
+2026-05-07 13:24:09,485 [INFO] Login successful.
+2026-05-07 13:24:12,996 [INFO] Dashboard is ready.
+2026-05-07 13:25:42,260 [INFO] Filling form for GFMIS: 07003540037003220226
+2026-05-07 13:25:57,647 [ERROR] Error filling disbursement form: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0xc7b373+10553]
+	chromedriver!GetHandleVerifier [0xc7b4a4+10684]
+	chromedriver!(No symbol) [0xa81e10]
+	chromedriver!(No symbol) [0xaca9da]
+	chromedriver!(No symbol) [0xacac7b]
+	chromedriver!(No symbol) [0xb0d162]
+	chromedriver!(No symbol) [0xaed8b4]
+	chromedriver!(No symbol) [0xb0aa36]
+	chromedriver!(No symbol) [0xaed606]
+	chromedriver!(No symbol) [0xac0039]
+	chromedriver!(No symbol) [0xac0df4]
+	chromedriver!GetHandleVerifier [0xefddb4+292f94]
+	chromedriver!GetHandleVerifier [0xef937d+28e55d]
+	chromedriver!GetHandleVerifier [0xf18215+2ad3f5]
+	chromedriver!GetHandleVerifier [0xc94c18+29df8]
+	chromedriver!GetHandleVerifier [0xc9c6fd+318dd]
+	chromedriver!GetHandleVerifier [0xc83c78+18e58]
+	chromedriver!GetHandleVerifier [0xc83e42+19022]
+	chromedriver!GetHandleVerifier [0xc6d45f+263f]
+	KERNEL32!BaseThreadInitThunk [0x76625d49+19]
+	ntdll!RtlInitializeExceptionChain [0x778cd83b+6b]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x778cd7c1+231]
+
+2026-05-07 14:18:26,456 [INFO] ====== WebDriver manager ======
+2026-05-07 14:18:28,285 [INFO] Get LATEST chromedriver version for google-chrome
+2026-05-07 14:18:29,434 [INFO] Get LATEST chromedriver version for google-chrome
+2026-05-07 14:18:30,497 [INFO] Driver [C:\Users\LEGION\.wdm\drivers\chromedriver\win64\147.0.7727.117\chromedriver-win32/chromedriver.exe] found in cache
+2026-05-07 14:18:32,072 [INFO] Navigating to: https://cenproject.rid.go.th/
+2026-05-07 14:18:32,915 [INFO] Login successful.
+2026-05-07 14:18:36,318 [INFO] Dashboard is ready.
