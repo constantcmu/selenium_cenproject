@@ -9,6 +9,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.common.exceptions import TimeoutException, NoSuchElementException, StaleElementReferenceException
 from webdriver_manager.chrome import ChromeDriverManager
 from config import Config
 
@@ -69,16 +70,19 @@ def fast_login(driver, wait):
 
 
 def fast_navigate_to_target_url(driver, wait):
-    #navigate to target bugget 2569
-    driver.get(Config.TARGET_URL)
-    loading_overlay = (By.XPATH, "//div[contains(@style, 'z-index: 9999')]")
-    try :
+    try:
+        logger.info(f"Navigating to Target URL: {Config.TARGET_URL}")
+        driver.get(Config.TARGET_URL)
+        loading_overlay = (By.XPATH, "//div[contains(@style, 'z-index: 9999')]")
         wait.until(EC.invisibility_of_element_located(loading_overlay))
         logger.info("Navigate to Target URL successfully.")
+    except TimeoutException:
+        logger.error("!!! Timeout waiting for Target URL to load or overlay to disappear.")
+        raise
     except Exception as e:
         logger.error(f"Navigate to Target URL error: {e}")
-        raise   
- 
+        raise
+
 
 def fill_disbursement_form(driver, wait, data):
     """
