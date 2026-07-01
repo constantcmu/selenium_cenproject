@@ -110,7 +110,7 @@ def process_page_items(driver, wait, main_excel_df):
     except Exception as e:
         logger.error(f"Processing loop error: {e}")
 
-def main():
+def main(budget_year: str = None, excel_file: str = None):
     # Validate configuration
     try:
         Config.validate()
@@ -118,12 +118,15 @@ def main():
         logger.error(e)
         return
 
-    if not os.path.exists(Config.EXCEL_FILE):
-        logger.error(f"Excel file not found: {Config.EXCEL_FILE}")
+    target_year = budget_year or Config.BUDGET_YEAR
+    target_excel = excel_file or Config.EXCEL_FILE
+
+    if not os.path.exists(target_excel):
+        logger.error(f"Excel file not found: {target_excel}")
         return
 
-    logger.info("Starting automation...")
-    main_excel_df = pd.read_excel(Config.EXCEL_FILE)
+    logger.info(f"Starting automation for Year: {target_year} using Excel: {target_excel}...")
+    main_excel_df = pd.read_excel(target_excel)
     driver = setup_driver()
     wait = WebDriverWait(driver, 15)
     
@@ -131,7 +134,7 @@ def main():
         login(driver, wait)
         
         # Navigate to target page
-        target_url = f"{Config.TRACKING_URL}?BudgetYear={Config.BUDGET_YEAR}&BudgetSourceID=1"
+        target_url = f"{Config.TRACKING_URL}?BudgetYear={target_year}&BudgetSourceID=1"
         logger.info(f"Jumping to Budget Page: {target_url}")
         driver.get(target_url)
         

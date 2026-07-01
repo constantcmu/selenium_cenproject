@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEN Automation Flow Editor</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Top Glassmorphic Navigation -->
+    <header class="app-header">
+        <div class="header-left">
+            <div class="logo">
+                <i class="fa-solid fa-network-wired logo-icon"></i>
+                <div class="logo-text">
+                    <h1>CEN Project Flow</h1>
+                    <span>Visual RPA Orchestrator</span>
+                </div>
+            </div>
+        </div>
+        <div class="header-center">
+            <button id="btn-run-workflow" class="btn-primary">
+                <i class="fa-solid fa-play"></i> เริ่มทำงาน (Run Workflow)
+            </button>
+            <button id="btn-reset-layout" class="btn-secondary">
+                <i class="fa-solid fa-arrows-to-eye"></i> จัดวางโหนดใหม่
+            </button>
+        </div>
+        <div class="header-right">
+            <div class="api-status">
+                <span class="status-dot green" id="api-dot"></span>
+                <span class="status-text" id="api-text">API Online (127.0.0.1:8000)</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="app-workspace">
+        <!-- Sidebar Node Library -->
+        <aside class="node-sidebar">
+            <div class="sidebar-section">
+                <h3><i class="fa-solid fa-boxes-stacked"></i> คลังโหนด (Library)</h3>
+                <p class="sidebar-help">คลิกหรือลากโหนดเพื่อเพิ่มลงในผังงาน</p>
+            </div>
+
+            <div class="node-palette">
+                <!-- Group 1: Source -->
+                <div class="palette-group">
+                    <h4>แหล่งข้อมูล (Source)</h4>
+                    <div class="palette-item source-node" draggable="true" data-node-type="source">
+                        <i class="fa-solid fa-file-excel icon-source"></i>
+                        <span>Excel / งบประมาณ</span>
+                    </div>
+                </div>
+
+                <!-- Group 2: Processors -->
+                <div class="palette-group">
+                    <h4>บอตอัตโนมัติ (Automation)</h4>
+                    <div class="palette-item scraper-node" draggable="true" data-node-type="scraper">
+                        <i class="fa-solid fa-spider icon-scraper"></i>
+                        <span>CEN Scraper (main.py)</span>
+                    </div>
+                    <div class="palette-item disburse-node" draggable="true" data-node-type="disburse">
+                        <i class="fa-solid fa-wallet icon-disburse"></i>
+                        <span>บอตคีย์เบิกจ่าย</span>
+                    </div>
+                </div>
+
+                <!-- Group 3: Outputs -->
+                <div class="palette-group">
+                    <h4>การแสดงผล (Output)</h4>
+                    <div class="palette-item console-node" draggable="true" data-node-type="console">
+                        <i class="fa-solid fa-terminal icon-console"></i>
+                        <span>Terminal Logs</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bot States Monitor Card -->
+            <div class="monitor-card">
+                <h4><i class="fa-solid fa-gauge-high"></i> สถานะบอตเรียลไทม์</h4>
+                <div class="monitor-item">
+                    <span>Scraper:</span>
+                    <span id="monitor-scraper-status" class="badge-status idle">Idle</span>
+                </div>
+                <div class="monitor-item">
+                    <span>คีย์เบิกจ่าย:</span>
+                    <span id="monitor-disburse-status" class="badge-status idle">Idle</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Canvas Container -->
+        <div class="canvas-container" id="canvas-container">
+            <div class="canvas-viewport" id="canvas-viewport">
+                <!-- Grid Background and Connection Lines -->
+                <svg class="connections-svg" id="connections-svg">
+                    <!-- Dynamic connection lines (edges) will be drawn here -->
+                </svg>
+                
+                <!-- Nodes Layer -->
+                <div class="nodes-layer" id="nodes-layer">
+                    <!-- Dynamic node elements will be rendered here -->
+                </div>
+            </div>
+            
+            <!-- Zoom Controls Overlay -->
+            <div class="zoom-controls">
+                <button id="btn-zoom-in" class="btn-zoom" title="ซูมเข้า"><i class="fa-solid fa-plus"></i></button>
+                <button id="btn-zoom-reset" class="btn-zoom" title="พอดีจอ" style="font-size:11px;">100%</button>
+                <button id="btn-zoom-out" class="btn-zoom" title="ซูมออก"><i class="fa-solid fa-minus"></i></button>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript Bundle -->
+    <script src="app.js"></script>
+</body>
+</html>

@@ -183,3 +183,13 @@ Stacktrace:
 2026-05-07 16:21:56,739 [INFO] Dashboard is ready.
 2026-05-07 16:22:00,859 [INFO] Navigating to Target URL: https://cenproject.rid.go.th/track/budget?BudgetYear=2026&BudgetSourceID=1
 2026-05-07 16:22:01,343 [INFO] Navigate to Target URL successfully.
+2026-07-01 15:11:43,542 [INFO] --- Starting Disbursement System (Year: 2026) ---
+2026-07-01 15:11:43,543 [INFO] ====== WebDriver manager ======
+2026-07-01 15:11:46,017 [INFO] Get LATEST chromedriver version for google-chrome
+2026-07-01 15:11:46,693 [INFO] Get LATEST chromedriver version for google-chrome
+2026-07-01 15:11:47,297 [INFO] Driver [C:\Users\LEGION\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win32/chromedriver.exe] found in cache
+2026-07-01 15:11:49,286 [INFO] Navigating to: https://cenproject.rid.go.th/
+2026-07-01 15:11:50,314 [INFO] Login successful.
+2026-07-01 15:11:54,130 [INFO] Dashboard is ready.
+2026-07-01 15:11:54,130 [INFO] System is ready for batch processing. Please configure your Excel loop in main.py
+2026-07-01 15:11:54,130 [INFO] Shutting down driver.
