@@ -1,7 +1,7 @@
 import os
 import logging
+# pyrefly: ignore [missing-import]
 from fastapi import FastAPI, BackgroundTasks, HTTPException
-from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional
@@ -135,7 +135,3 @@ def get_status():
         "jobs": bot_state,
         "logs": logs
     }
-
-# Mount static files folder to serve the web application dashboard
-app.mount("/static", StaticFiles(directory="frontend"), name="static")
-
