@@ -6,8 +6,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 
-from config import Config
-from utils import setup_logger, setup_driver, get_table_df, handle_pagination
+from core.config import Config
+from core.utils import setup_logger, setup_driver, get_table_df, handle_pagination
 
 # Initialize Logger
 logger = setup_logger()
